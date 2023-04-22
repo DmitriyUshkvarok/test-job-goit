@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/test-job-goit/static/css/main.d2509d74.css",
+    "main.js": "/test-job-goit/static/js/main.6c6d4b88.js",
+    "static/js/156.9496290b.chunk.js": "/test-job-goit/static/js/156.9496290b.chunk.js",
+    "static/js/696.84129637.chunk.js": "/test-job-goit/static/js/696.84129637.chunk.js",
+    "static/js/881.65617138.chunk.js": "/test-job-goit/static/js/881.65617138.chunk.js",
+    "static/js/243.9231fe7f.chunk.js": "/test-job-goit/static/js/243.9231fe7f.chunk.js",
+    "static/js/135.0bfc7d0c.chunk.js": "/test-job-goit/static/js/135.0bfc7d0c.chunk.js",
+    "static/media/picture.png": "/test-job-goit/static/media/picture.ecde5c9dfbe42e4d5b8e.png",
+    "static/media/Ellipse(Stroke).png": "/test-job-goit/static/media/Ellipse(Stroke).59d59fac161963e2ff88.png",
+    "index.html": "/test-job-goit/index.html",
+    "main.d2509d74.css.map": "/test-job-goit/static/css/main.d2509d74.css.map",
+    "main.6c6d4b88.js.map": "/test-job-goit/static/js/main.6c6d4b88.js.map",
+    "156.9496290b.chunk.js.map": "/test-job-goit/static/js/156.9496290b.chunk.js.map",
+    "696.84129637.chunk.js.map": "/test-job-goit/static/js/696.84129637.chunk.js.map",
+    "881.65617138.chunk.js.map": "/test-job-goit/static/js/881.65617138.chunk.js.map",
+    "243.9231fe7f.chunk.js.map": "/test-job-goit/static/js/243.9231fe7f.chunk.js.map",
+    "135.0bfc7d0c.chunk.js.map": "/test-job-goit/static/js/135.0bfc7d0c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d2509d74.css",
+    "static/js/main.6c6d4b88.js"
+  ]
+}
