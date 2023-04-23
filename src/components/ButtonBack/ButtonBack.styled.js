@@ -5,7 +5,8 @@ export const BtnBack = styled.button`
   justify-content: center;
   align-items: center;
   font-family: var(--font-family);
-  background-color: var(--background-body);
+  background: var(--background-body);
+  color: var(--color-text);
   border-radius: 30px;
   border: none;
   width: 100px;
@@ -19,6 +20,7 @@ export const BtnBack = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: #fefe;
+    background: var(--buttonHover);
+    color: black;
   }
 `;

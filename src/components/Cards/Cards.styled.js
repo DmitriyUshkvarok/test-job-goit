@@ -1,4 +1,25 @@
 import styled from 'styled-components';
+import { FaReact } from 'react-icons/fa';
+
+export const CardsLoader = styled(FaReact)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  animation: rotate 5s infinite linear;
+  -webkit-animation: rotate 5s infinite linear;
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
 
 export const CardList = styled.ul`
   display: flex;
@@ -11,7 +32,7 @@ export const CardList = styled.ul`
 export const CardsItem = styled.li`
   position: relative;
   width: 380px;
-  background-color: var(--background-body);
+  background: var(--backgroundCard);
   border-radius: 20px;
 `;
 
@@ -92,18 +113,6 @@ export const TweetsText = styled.p`
   margin-bottom: 16px;
 `;
 
-export const FollowersText = styled.p`
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  text-transform: uppercase;
-  color: var(--color-text);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 26px;
-`;
-
 export const CardUserName = styled.p`
   font-family: var(--font-family);
   font-weight: 500;
@@ -136,23 +145,25 @@ export const ButtonFollow = styled.button`
   font-family: var(--font-family);
   font-weight: 600;
   line-height: 22px;
-  color: var(--button-color-text);
+  color: var(--color-text);
   text-transform: uppercase;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 36px;
-  background-color: var(--button-color);
+  background: var(--background-body);
   border: none;
   border-radius: var(--border-radius);
   padding: 14px 28px;
-  transition: background-color var(--transition);
+  transition: color var(--transition);
+  cursor: pointer;
 
   &.button-color-active {
-    background-color: var(--button-color-active);
+    background: var(--button-color-active);
   }
 
   &:hover {
-    background-color: #fefefe;
+    background: var(--buttonHover);
+    color: var(--button-color-text);
   }
 `;
 
@@ -167,15 +178,17 @@ export const ButtonLoadMore = styled.button`
   font-family: var(--font-family);
   font-weight: 600;
   line-height: 22px;
-  color: var(--button-color-text);
+  color: var(--color-text);
   text-transform: uppercase;
-  background-color: var(--button-color);
+  background: var(--background-body);
   border: none;
   border-radius: var(--border-radius);
   padding: 14px 28px;
-  transition: background-color var(--transition);
+  transition: var(--transition);
+  cursor: pointer;
 
   &:hover {
-    background-color: #fefefe;
+    background: var(--buttonHover);
+    color: var(--button-color-text);
   }
 `;

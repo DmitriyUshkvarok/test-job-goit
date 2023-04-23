@@ -1,11 +1,10 @@
 import styled from 'styled-components';
+import ScrollToTop from 'react-scroll-to-top';
 
 export const PageUserWrapper = styled.section`
-  padding-bottom: 20px;
+  padding: 20px;
   min-height: 100vh;
-  background: #6441a5;
-  background: -webkit-linear-gradient(to right, #2a0845, #6441a5);
-  background: linear-gradient(to right, #2a0845, #6441a5);
+  background: var(--background-body);
 `;
 
 export const PageUserTitle = styled.h1`
@@ -24,4 +23,31 @@ export const PageUserDescription = styled.h1`
   font-size: 41px;
   margin-bottom: 20px;
   color: var(--color-text);
+`;
+
+export const StyledScrollToTop = styled(ScrollToTop)`
+  width: 150px;
+  height: 50px;
+  border-radius: 50% !important;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-body) !important;
+  transition: var(--transition);
+
+  svg {
+    fill: var(--color-text);
+
+    &:hover {
+      fill: var(--buttonHover);
+    }
+  }
+
+  &:hover {
+    background-color: var(--color-text) !important;
+  }
 `;

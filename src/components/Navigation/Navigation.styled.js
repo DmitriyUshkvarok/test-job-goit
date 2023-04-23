@@ -4,9 +4,7 @@ import { NavLink } from 'react-router-dom';
 export const MainLogo = styled.img`
   width: 176px;
   height: 52px;
-  padding-top: 20px;
   padding-left: 20px;
-  margin-bottom: 22px;
 `;
 
 export const NavContainer = styled.div`
@@ -28,8 +26,24 @@ export const StyleNav = styled.nav`
 export const StyleNavLink = styled(NavLink)`
   color: var(--color-text);
   transition: color var(--transition);
+  position: relative;
 
   &:hover {
     color: aqua;
+  }
+
+  &.active {
+    color: aqua;
+  }
+
+  &.active::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    height: 3px;
+    background-color: aqua;
+    border-radius: 5px;
   }
 `;

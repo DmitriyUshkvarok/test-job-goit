@@ -2,15 +2,19 @@ import styled from 'styled-components';
 import { FaReact } from 'react-icons/fa';
 
 export const SectionHomePage = styled.section`
-  height: 100vh;
-  background: #0f0c29;
-  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  min-height: 100vh;
+  background: var(--backgroundHome);
+  padding: 20px;
+`;
+
+export const HomeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
 
 export const HomePageTitle = styled.h1`
   text-align: center;
-  padding: 20px;
   font-size: 60px;
   font-weight: bold;
   font-family: var(--font-family);
@@ -37,4 +41,8 @@ export const StyledFaReact = styled(FaReact)`
       transform: rotate(360deg);
     }
   }
+`;
+
+export const FooterContainer = styled.div`
+  margin-top: auto;
 `;
