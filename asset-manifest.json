@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/test-job-goit/static/css/main.1d67ee00.css",
-    "main.js": "/test-job-goit/static/js/main.d44316dd.js",
-    "static/js/80.9d50a1cb.chunk.js": "/test-job-goit/static/js/80.9d50a1cb.chunk.js",
-    "static/js/321.559374e7.chunk.js": "/test-job-goit/static/js/321.559374e7.chunk.js",
+    "main.js": "/test-job-goit/static/js/main.bbe6ada5.js",
+    "static/js/80.036cc298.chunk.js": "/test-job-goit/static/js/80.036cc298.chunk.js",
+    "static/js/45.7f29a499.chunk.js": "/test-job-goit/static/js/45.7f29a499.chunk.js",
     "static/js/670.e0ea3116.chunk.js": "/test-job-goit/static/js/670.e0ea3116.chunk.js",
     "static/js/958.299d9a1e.chunk.js": "/test-job-goit/static/js/958.299d9a1e.chunk.js",
     "static/media/picture.png": "/test-job-goit/static/media/picture.ecde5c9dfbe42e4d5b8e.png",
     "static/media/Ellipse(Stroke).png": "/test-job-goit/static/media/Ellipse(Stroke).59d59fac161963e2ff88.png",
     "index.html": "/test-job-goit/index.html",
     "main.1d67ee00.css.map": "/test-job-goit/static/css/main.1d67ee00.css.map",
-    "main.d44316dd.js.map": "/test-job-goit/static/js/main.d44316dd.js.map",
-    "80.9d50a1cb.chunk.js.map": "/test-job-goit/static/js/80.9d50a1cb.chunk.js.map",
-    "321.559374e7.chunk.js.map": "/test-job-goit/static/js/321.559374e7.chunk.js.map",
+    "main.bbe6ada5.js.map": "/test-job-goit/static/js/main.bbe6ada5.js.map",
+    "80.036cc298.chunk.js.map": "/test-job-goit/static/js/80.036cc298.chunk.js.map",
+    "45.7f29a499.chunk.js.map": "/test-job-goit/static/js/45.7f29a499.chunk.js.map",
     "670.e0ea3116.chunk.js.map": "/test-job-goit/static/js/670.e0ea3116.chunk.js.map",
     "958.299d9a1e.chunk.js.map": "/test-job-goit/static/js/958.299d9a1e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1d67ee00.css",
-    "static/js/main.d44316dd.js"
+    "static/js/main.bbe6ada5.js"
   ]
 }
