@@ -1,6 +1,5 @@
 import Container from '../../components/Container/Container';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
-// import Cards from '../../components/Cards/Cards';
 import FilterCards from 'components/FilterCards/FilterCards';
 import {
   PageUserWrapper,
