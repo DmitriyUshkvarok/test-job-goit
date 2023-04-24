@@ -11,7 +11,6 @@ export const BtnBack = styled.button`
   border: none;
   width: 100px;
   height: 50px;
-  margin-bottom: 20px;
   transition: background-color 0.4s;
   -webkit-transition: background-color 0.4s;
   -moz-transition: background-color 0.4s;
@@ -22,5 +21,11 @@ export const BtnBack = styled.button`
   &:hover {
     background: var(--buttonHover);
     color: black;
+  }
+
+  @media screen and (max-width: 530px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
   }
 `;

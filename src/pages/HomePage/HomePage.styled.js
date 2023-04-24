@@ -23,6 +23,10 @@ export const HomePageTitle = styled.h1`
   text-shadow: 0 0 50px blue;
   margin-top: 50px;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 530px) {
+    font-size: 40px;
+  }
 `;
 
 export const StyledFaReact = styled(FaReact)`
@@ -45,4 +49,8 @@ export const StyledFaReact = styled(FaReact)`
 
 export const FooterContainer = styled.div`
   margin-top: auto;
+
+  @media screen and (max-width: 530px) {
+    font-size: 40px;
+  }
 `;

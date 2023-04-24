@@ -1,6 +1,7 @@
 import Container from '../../components/Container/Container';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
-import Cards from '../../components/Cards/Cards';
+// import Cards from '../../components/Cards/Cards';
+import FilterCards from 'components/FilterCards/FilterCards';
 import {
   PageUserWrapper,
   PageUserTitle,
@@ -10,9 +11,9 @@ import {
 import Navigation from '../../components/Navigation/Navigation';
 import { Link, useLocation } from 'react-router-dom';
 
-const UserPage = () => {
+const UserPage = ({ users }) => {
   const location = useLocation();
-  const backLink = location.state?.from ?? 'home';
+  const backLink = location.state?.from ?? '/home';
 
   return (
     <PageUserWrapper>
@@ -24,7 +25,7 @@ const UserPage = () => {
           <ButtonBack />
         </Link>
         <PageUserDescription>Tweet Cards</PageUserDescription>
-        <Cards />
+        <FilterCards users={users} />
       </Container>
     </PageUserWrapper>
   );

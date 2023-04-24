@@ -19,4 +19,9 @@ export const FooterCopyright = styled.p`
   text-transform: uppercase;
   color: var(--color-text);
   text-shadow: 0 0 50px blue;
+
+  @media screen and (max-width: 530px) {
+    text-align: center;
+    font-size: 10px;
+  }
 `;

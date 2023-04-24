@@ -23,8 +23,8 @@ import Transverse from '../../images/Rectangle1.png';
 import AvatarCards from '../../images/Ellipse(Stroke).png';
 import apiUsers from '../../services/api';
 
-const Cards = () => {
-  const [users, setUsers] = useState([]);
+const Cards = ({ users }) => {
+  const [cardUsers, setCardUsers] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(3);
@@ -47,7 +47,7 @@ const Cards = () => {
     apiUsers
       .fetchUsers()
       .then(users => {
-        setUsers(users);
+        setCardUsers(users);
         if (users.length <= limit) {
           setHasMore(false);
         }
@@ -59,22 +59,23 @@ const Cards = () => {
   }, [users.length, limit]);
 
   // request on put followers
-  const handleFollowClick = (id, followers) => {
+  const handleFollowClick = (id, followers, isFollowed) => {
     if (followedUsers.includes(id)) {
       // Отменяем подписку
       apiUsers
-        .updateFollowers(id, followers - 1)
+        .updateFollowers(id, followers - 1, false)
         .then(() => {
           setFollowedUsers(followedUsers.filter(userId => userId !== id));
           setButtonColorsAndText(prevButtonColors => ({
             ...prevButtonColors,
             [id]: false,
           }));
-          setUsers(users => {
+          setCardUsers(users => {
             const userIndex = users.findIndex(user => user.id === id);
             const updatedUser = {
               ...users[userIndex],
               followers: followers - 1,
+              isFollowed: false,
             };
             const updatedUsers = [...users];
             updatedUsers[userIndex] = updatedUser;
@@ -87,18 +88,19 @@ const Cards = () => {
     } else {
       // Подписываемся
       apiUsers
-        .updateFollowers(id, followers + 1)
+        .updateFollowers(id, followers + 1, true)
         .then(() => {
           setFollowedUsers([...followedUsers, id]);
           setButtonColorsAndText(prevButtonColors => ({
             ...prevButtonColors,
             [id]: true,
           }));
-          setUsers(users => {
+          setCardUsers(users => {
             const userIndex = users.findIndex(user => user.id === id);
             const updatedUser = {
               ...users[userIndex],
               followers: followers + 1,
+              isFollowed: true,
             };
             const updatedUsers = [...users];
             updatedUsers[userIndex] = updatedUser;
@@ -128,7 +130,7 @@ const Cards = () => {
   return (
     <>
       <CardList>
-        {loading ? (
+        {cardUsers && loading ? (
           <CardsLoader size={50} color="aqua" />
         ) : (
           users
