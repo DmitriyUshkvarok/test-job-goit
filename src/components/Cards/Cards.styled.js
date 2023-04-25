@@ -21,6 +21,13 @@ export const CardsLoader = styled(FaReact)`
   }
 `;
 
+export const WrapperForBtnBackAndSelect = styled.div`
+  width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+`;
+
 export const CardList = styled.ul`
   display: flex;
   justify-content: center;

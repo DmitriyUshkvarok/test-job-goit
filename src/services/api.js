@@ -13,18 +13,8 @@ function updateFollowers(id, followers, isFollowed) {
   });
 }
 
-function filterUsersByFollowStatus(isFollowed) {
-  const status = isFollowed ? 'true' : 'false';
-  return axios
-    .get(
-      `https://6442c7f376540ce2259567c9.mockapi.io/users?isFollowed=${status}`
-    )
-    .then(response => response.data);
-}
-
 const apiUsers = {
   fetchUsers,
   updateFollowers,
-  filterUsersByFollowStatus,
 };
 export default apiUsers;

@@ -1,6 +1,6 @@
 import Container from '../../components/Container/Container';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
-import FilterCards from 'components/FilterCards/FilterCards';
+import Cards from 'components/Cards/Cards';
 import {
   PageUserWrapper,
   PageUserTitle,
@@ -24,7 +24,7 @@ const UserPage = ({ users }) => {
           <ButtonBack />
         </Link>
         <PageUserDescription>Tweet Cards</PageUserDescription>
-        <FilterCards users={users} />
+        <Cards />
       </Container>
     </PageUserWrapper>
   );

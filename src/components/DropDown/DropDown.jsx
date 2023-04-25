@@ -1,16 +1,18 @@
 import React from 'react';
 import { StyleSelect } from './DropDown.styled';
 
-const DropDown = ({ filter, onFilterChange }) => {
+const DropDown = ({ options, filter, onFilterChange }) => {
   const handleChange = event => {
     onFilterChange(event.target.value);
   };
   return (
     <div>
       <StyleSelect value={filter} onChange={handleChange}>
-        <option value="all">Show all</option>
-        <option value="follow">Follow</option>
-        <option value="following">Following</option>
+        {options.map(option => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
       </StyleSelect>
     </div>
   );

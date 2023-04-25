@@ -16,15 +16,25 @@ import {
   ButtonLoadMore,
   ImgAvatar,
   CardsLoader,
+  WrapperForBtnBackAndSelect,
 } from './Cards.styled';
 import Logo from '../../images/Logo.png';
 import PromoImg from '../../images/picture.png';
 import Transverse from '../../images/Rectangle1.png';
 import AvatarCards from '../../images/Ellipse(Stroke).png';
 import apiUsers from '../../services/api';
+import DropDown from 'components/DropDown/DropDown';
 
-const Cards = ({ users }) => {
-  const [cardUsers, setCardUsers] = useState([]);
+const options = [
+  { value: 'all', label: 'Show all' },
+  { value: 'follow', label: 'Follow' },
+  { value: 'following', label: 'Following' },
+];
+
+const Cards = () => {
+  const [filter, setFilter] = useState('all');
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(3);
@@ -42,12 +52,26 @@ const Cards = ({ users }) => {
     localStorage.setItem('followedUsers', JSON.stringify(followedUsers));
   }, [buttonColorsAndText, followedUsers]);
 
+  useEffect(() => {
+    switch (filter) {
+      case 'follow':
+        setFilteredUsers(users.filter(({ id }) => followedUsers.includes(id)));
+        break;
+      case 'following':
+        setFilteredUsers(users.filter(({ id }) => !followedUsers.includes(id)));
+        break;
+      default:
+        setFilteredUsers(users);
+        break;
+    }
+  }, [users, followedUsers, filter]);
+
   // request on render user cards
   useEffect(() => {
     apiUsers
       .fetchUsers()
       .then(users => {
-        setCardUsers(users);
+        setUsers(users);
         if (users.length <= limit) {
           setHasMore(false);
         }
@@ -59,23 +83,22 @@ const Cards = ({ users }) => {
   }, [users.length, limit]);
 
   // request on put followers
-  const handleFollowClick = (id, followers, isFollowed) => {
+  const handleFollowClick = (id, followers) => {
     if (followedUsers.includes(id)) {
       // Отменяем подписку
       apiUsers
-        .updateFollowers(id, followers - 1, false)
+        .updateFollowers(id, followers - 1)
         .then(() => {
           setFollowedUsers(followedUsers.filter(userId => userId !== id));
           setButtonColorsAndText(prevButtonColors => ({
             ...prevButtonColors,
             [id]: false,
           }));
-          setCardUsers(users => {
+          setUsers(users => {
             const userIndex = users.findIndex(user => user.id === id);
             const updatedUser = {
               ...users[userIndex],
               followers: followers - 1,
-              isFollowed: false,
             };
             const updatedUsers = [...users];
             updatedUsers[userIndex] = updatedUser;
@@ -88,19 +111,18 @@ const Cards = ({ users }) => {
     } else {
       // Подписываемся
       apiUsers
-        .updateFollowers(id, followers + 1, true)
+        .updateFollowers(id, followers + 1)
         .then(() => {
           setFollowedUsers([...followedUsers, id]);
           setButtonColorsAndText(prevButtonColors => ({
             ...prevButtonColors,
             [id]: true,
           }));
-          setCardUsers(users => {
+          setUsers(users => {
             const userIndex = users.findIndex(user => user.id === id);
             const updatedUser = {
               ...users[userIndex],
               followers: followers + 1,
-              isFollowed: true,
             };
             const updatedUsers = [...users];
             updatedUsers[userIndex] = updatedUser;
@@ -123,19 +145,30 @@ const Cards = ({ users }) => {
     }
   };
 
+  const handleFilterChange = value => {
+    setFilter(value);
+  };
+
   if (error) {
     return <p>{error.message}</p>;
   }
 
   return (
     <>
+      <WrapperForBtnBackAndSelect>
+        <DropDown
+          options={options}
+          filter={filter}
+          onFilterChange={handleFilterChange}
+        />
+      </WrapperForBtnBackAndSelect>
       <CardList>
-        {cardUsers && loading ? (
+        {loading ? (
           <CardsLoader size={50} color="aqua" />
         ) : (
-          users
+          filteredUsers
             .slice(0, limit)
-            .map(({ id, avatar, followers, tweets, user }) => (
+            .map(({ id, avatar, followers, tweets, user, following }) => (
               <CardsItem key={id}>
                 <MainLogo src={Logo} alt="Logo" />
                 <PromoImgCards src={PromoImg} alt="PromoImg" />
@@ -177,5 +210,4 @@ const Cards = ({ users }) => {
     </>
   );
 };
-
 export default Cards;
