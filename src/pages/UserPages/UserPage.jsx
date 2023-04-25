@@ -10,7 +10,7 @@ import {
 import Navigation from '../../components/Navigation/Navigation';
 import { Link, useLocation } from 'react-router-dom';
 
-const UserPage = ({ users }) => {
+const UserPage = () => {
   const location = useLocation();
   const backLink = location.state?.from ?? '/home';
 

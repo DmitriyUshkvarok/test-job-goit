@@ -24,6 +24,7 @@ import Transverse from '../../images/Rectangle1.png';
 import AvatarCards from '../../images/Ellipse(Stroke).png';
 import apiUsers from '../../services/api';
 import DropDown from 'components/DropDown/DropDown';
+import { toast } from 'react-toastify';
 
 const options = [
   { value: 'all', label: 'Show all' },
@@ -74,6 +75,7 @@ const Cards = () => {
         setUsers(users);
         if (users.length <= limit) {
           setHasMore(false);
+          toast.error('sorry no more cards found');
         }
       })
       .catch(error => {
@@ -104,6 +106,7 @@ const Cards = () => {
             updatedUsers[userIndex] = updatedUser;
             return updatedUsers;
           });
+          toast.warning(`you signed off `);
         })
         .catch(error => {
           console.log(error);
@@ -128,6 +131,7 @@ const Cards = () => {
             updatedUsers[userIndex] = updatedUser;
             return updatedUsers;
           });
+          toast.success(`you signed up `);
         })
         .catch(error => {
           console.log(error);
@@ -168,7 +172,7 @@ const Cards = () => {
         ) : (
           filteredUsers
             .slice(0, limit)
-            .map(({ id, avatar, followers, tweets, user, following }) => (
+            .map(({ id, avatar, followers, tweets, user }) => (
               <CardsItem key={id}>
                 <MainLogo src={Logo} alt="Logo" />
                 <PromoImgCards src={PromoImg} alt="PromoImg" />
