@@ -17,8 +17,8 @@ const HomePage = () => {
           <HomeWrapper>
             <Navigation />
             <HomePageTitle>
-              welcome to the app I had to create for a test assignment at it
-              school goit
+              welcome to the tweets app I created at goit school as a test
+              assignment
             </HomePageTitle>
             <StyledFaReact size={150} color="aqua" />
             <FooterContainer>
