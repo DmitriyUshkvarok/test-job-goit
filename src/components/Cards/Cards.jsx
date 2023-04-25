@@ -57,9 +57,11 @@ const Cards = () => {
     switch (filter) {
       case 'follow':
         setFilteredUsers(users.filter(({ id }) => followedUsers.includes(id)));
+        toast.success('you have chosen to filter follow');
         break;
       case 'following':
         setFilteredUsers(users.filter(({ id }) => !followedUsers.includes(id)));
+        toast.success('you have chosen to filter following');
         break;
       default:
         setFilteredUsers(users);
