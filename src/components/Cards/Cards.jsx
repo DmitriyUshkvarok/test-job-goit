@@ -57,11 +57,9 @@ const Cards = () => {
     switch (filter) {
       case 'follow':
         setFilteredUsers(users.filter(({ id }) => followedUsers.includes(id)));
-        toast.success('you have chosen to filter follow');
         break;
       case 'following':
         setFilteredUsers(users.filter(({ id }) => !followedUsers.includes(id)));
-        toast.success('you have chosen to filter following');
         break;
       default:
         setFilteredUsers(users);
@@ -147,6 +145,15 @@ const Cards = () => {
       setLimit(limit + 3);
       if (users.length <= limit + 3) {
         setHasMore(false);
+      }
+      if (hasMore) {
+        const targetY = window.pageYOffset + 500;
+        window.requestAnimationFrame(function smoothScroll() {
+          if (window.pageYOffset < targetY) {
+            window.scrollTo(0, window.pageYOffset + 50);
+            window.requestAnimationFrame(smoothScroll);
+          }
+        });
       }
     }
   };
