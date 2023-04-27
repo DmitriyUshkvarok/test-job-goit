@@ -25,6 +25,7 @@ import AvatarCards from '../../images/Ellipse(Stroke).png';
 import apiUsers from '../../services/api';
 import DropDown from 'components/DropDown/DropDown';
 import { toast } from 'react-toastify';
+import { animateScroll as scroll } from 'react-scroll';
 
 const options = [
   { value: 'all', label: 'Show all' },
@@ -55,10 +56,10 @@ const Cards = () => {
 
   useEffect(() => {
     switch (filter) {
-      case 'follow':
+      case 'following':
         setFilteredUsers(users.filter(({ id }) => followedUsers.includes(id)));
         break;
-      case 'following':
+      case 'follow':
         setFilteredUsers(users.filter(({ id }) => !followedUsers.includes(id)));
         break;
       default:
@@ -141,20 +142,15 @@ const Cards = () => {
 
   // click buttom load more
   const handleButtonLoadMore = () => {
-    if (hasMore) {
+    if (hasMore && users.length > 0) {
       setLimit(limit + 3);
       if (users.length <= limit + 3) {
         setHasMore(false);
       }
-      if (hasMore) {
-        const targetY = window.pageYOffset + 500;
-        window.requestAnimationFrame(function smoothScroll() {
-          if (window.pageYOffset < targetY) {
-            window.scrollTo(0, window.pageYOffset + 50);
-            window.requestAnimationFrame(smoothScroll);
-          }
-        });
-      }
+      scroll.scrollToBottom({
+        duration: 500,
+        smooth: 'easeInOutQuad',
+      });
     }
   };
 
@@ -216,7 +212,7 @@ const Cards = () => {
         )}
       </CardList>
       {hasMore && (
-        <ButtonLoadMore type="button" onClick={handleButtonLoadMore}>
+        <ButtonLoadMore onClick={handleButtonLoadMore} type="button">
           load more
         </ButtonLoadMore>
       )}
