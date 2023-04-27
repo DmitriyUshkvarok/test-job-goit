@@ -6,10 +6,9 @@ function fetchUsers() {
     .then(response => response.data);
 }
 
-function updateFollowers(id, followers, isFollowed) {
+function updateFollowers(id, followers) {
   return axios.put(`https://6442c7f376540ce2259567c9.mockapi.io/users/${id}`, {
     followers,
-    isFollowed,
   });
 }
 
