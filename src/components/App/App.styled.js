@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaReact } from 'react-icons/fa';
+import { SiReactos } from 'react-icons/si';
 
 export const LoaderWraper = styled.div`
   background: #0f0c29;
@@ -7,7 +7,7 @@ export const LoaderWraper = styled.div`
   background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 `;
 
-export const MainLoader = styled(FaReact)`
+export const MainLoader = styled(SiReactos)`
   height: 100vh;
   display: flex;
   align-items: center;

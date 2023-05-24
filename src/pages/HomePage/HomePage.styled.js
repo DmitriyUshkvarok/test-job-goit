@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FaReact } from 'react-icons/fa';
+import { SiReactos } from 'react-icons/si';
 
 export const SectionHomePage = styled.section`
   min-height: 100vh;
@@ -29,12 +29,12 @@ export const HomePageTitle = styled.h1`
   }
 `;
 
-export const StyledFaReact = styled(FaReact)`
+export const StyledFaReact = styled(SiReactos)`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  animation: rotate 5s infinite linear;
-  -webkit-animation: rotate 5s infinite linear;
+  animation: rotate 3s infinite linear;
+  -webkit-animation: rotate 3s infinite linear;
 
   @keyframes rotate {
     from {
